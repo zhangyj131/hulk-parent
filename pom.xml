@@ -56,6 +56,7 @@
     <logstash-logback.version>5.3</logstash-logback.version>
     <minio.version>3.0.10</minio.version>
     <guava.version>20.0</guava.version>
+    <lombok.version>1.18.8</lombok.version>
     <dubbo.version>0.2.1.RELEASE</dubbo.version>
     <hulk-common.version>1.0-SNAPSHOT</hulk-common.version>
     <hulk-mapper.version>1.0-SNAPSHOT</hulk-mapper.version>
@@ -179,6 +180,11 @@
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
         <version>${guava.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
