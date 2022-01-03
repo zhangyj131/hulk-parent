@@ -58,6 +58,7 @@
     <guava.version>20.0</guava.version>
     <lombok.version>1.18.8</lombok.version>
     <dubbo.version>0.2.1.RELEASE</dubbo.version>
+    <apollo.version>1.7.0</apollo.version>
     <hulk-common.version>1.0-SNAPSHOT</hulk-common.version>
     <hulk-mapper.version>1.0-SNAPSHOT</hulk-mapper.version>
   </properties>
@@ -185,6 +186,11 @@
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <version>${lombok.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.ctrip.framework.apollo</groupId>
+        <artifactId>apollo-client</artifactId>
+        <version>${apollo.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
