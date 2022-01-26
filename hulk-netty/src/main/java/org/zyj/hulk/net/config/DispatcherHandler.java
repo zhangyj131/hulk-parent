@@ -1,6 +1,7 @@
 package org.zyj.hulk.net.config;
 
 import io.netty.channel.ChannelDuplexHandler;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.util.concurrent.DefaultThreadFactory;
 import lombok.extern.slf4j.Slf4j;
@@ -20,6 +21,7 @@ import java.util.concurrent.TimeUnit;
  */
 @Slf4j
 @Component
+@ChannelHandler.Sharable
 public class DispatcherHandler extends ChannelDuplexHandler implements InitializingBean, DisposableBean {
     private ExecutorService businessGroup;
 
@@ -32,9 +34,11 @@ public class DispatcherHandler extends ChannelDuplexHandler implements Initializ
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (msg instanceof String) {
             businessGroup.execute(() -> channelReadInvoke(ctx, (String) msg));
+            ctx.fireChannelRead(msg);
+        } else {
+            log.error("DispatcherHandler.channelRead is not String");
+            ctx.fireChannelRead(msg);
         }
-        log.error("DispatcherHandler.channelRead is not String");
-        ctx.fireChannelRead(msg);
     }
 
     @Override
@@ -48,6 +52,7 @@ public class DispatcherHandler extends ChannelDuplexHandler implements Initializ
     }
 
     private void channelReadInvoke(ChannelHandlerContext ctx, String msg) {
-
+        String responseMsg = new StringBuffer(msg).reverse().toString();
+        ctx.writeAndFlush(responseMsg);
     }
 }
