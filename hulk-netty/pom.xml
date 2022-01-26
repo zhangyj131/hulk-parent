@@ -17,21 +17,22 @@
     </properties>
 
     <dependencies>
-        <!--hulk通用模块-->
-        <dependency>
-            <groupId>org.zyj.hulk</groupId>
-            <artifactId>hulk-common</artifactId>
-            <version>${hulk-common.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.netty</groupId>
-            <artifactId>netty-all</artifactId>
-            <version>4.0.42.Final</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba.boot</groupId>-->
+        <!--            <artifactId>dubbo-spring-boot-starter</artifactId>-->
+        <!--        </dependency>-->
+        <!--        &lt;!&ndash; Dubbo &ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>dubbo</artifactId>-->
+        <!--            <version>2.6.8</version>-->
+        <!--            <exclusions>-->
+        <!--                <exclusion>-->
+        <!--                    <groupId>org.jboss.netty</groupId>-->
+        <!--                    <artifactId>netty</artifactId>-->
+        <!--                </exclusion>-->
+        <!--            </exclusions>-->
+        <!--        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -46,8 +47,16 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
