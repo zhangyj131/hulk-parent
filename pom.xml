@@ -12,6 +12,7 @@
     <module>hulk-common</module>
     <module>hulk-service</module>
     <module>hulk-web</module>
+    <module>hulk-netty</module>
   </modules>
   <packaging>pom</packaging>
 
@@ -63,15 +64,36 @@
     <hulk-mapper.version>1.0-SNAPSHOT</hulk-mapper.version>
   </properties>
 
-  <dependencyManagement>
+  <!--<dependencyManagement>
     <dependencies>
-      <!--hulk通用模块-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-web</artifactId>
+        <version>2.1.7.RELEASE</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+        <version>2.1.7.RELEASE</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-aop</artifactId>
+        <version>2.1.7.RELEASE</version>
+      </dependency>
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-test</artifactId>
+        <version>2.1.7.RELEASE</version>
+        <scope>test</scope>
+      </dependency>
+      &lt;!&ndash;hulk通用模块&ndash;&gt;
       <dependency>
         <groupId>org.zyj.hulk</groupId>
         <artifactId>hulk-common</artifactId>
         <version>${hulk-common.version}</version>
       </dependency>
-      <!--hulk中MBG生成模块-->
+      &lt;!&ndash;hulk中MBG生成模块&ndash;&gt;
       <dependency>
         <groupId>org.zyj.hulk</groupId>
         <artifactId>hulk-mapper</artifactId>
@@ -82,31 +104,31 @@
         <artifactId>dubbo-spring-boot-starter</artifactId>
         <version>${dubbo.version}</version>
       </dependency>
-      <!--MyBatis分页插件starter-->
+      &lt;!&ndash;MyBatis分页插件starter&ndash;&gt;
       <dependency>
         <groupId>com.github.pagehelper</groupId>
         <artifactId>pagehelper-spring-boot-starter</artifactId>
         <version>${pagehelper-starter.version}</version>
       </dependency>
-      <!--MyBatis分页插件-->
+      &lt;!&ndash;MyBatis分页插件&ndash;&gt;
       <dependency>
         <groupId>com.github.pagehelper</groupId>
         <artifactId>pagehelper</artifactId>
         <version>${pagehelper.version}</version>
       </dependency>
-      <!--集成druid连接池-->
+      &lt;!&ndash;集成druid连接池&ndash;&gt;
       <dependency>
         <groupId>com.alibaba</groupId>
         <artifactId>druid-spring-boot-starter</artifactId>
         <version>${druid.version}</version>
       </dependency>
-      <!--Hutool Java工具包-->
+      &lt;!&ndash;Hutool Java工具包&ndash;&gt;
       <dependency>
         <groupId>cn.hutool</groupId>
         <artifactId>hutool-all</artifactId>
         <version>${hutool.version}</version>
       </dependency>
-      <!--Swagger-UI API文档生产工具-->
+      &lt;!&ndash;Swagger-UI API文档生产工具&ndash;&gt;
       <dependency>
         <groupId>io.springfox</groupId>
         <artifactId>springfox-swagger2</artifactId>
@@ -117,7 +139,7 @@
         <artifactId>springfox-swagger-ui</artifactId>
         <version>${swagger2.version}</version>
       </dependency>
-      <!--解决Swagger 2.9.2版本NumberFormatException-->
+      &lt;!&ndash;解决Swagger 2.9.2版本NumberFormatException&ndash;&gt;
       <dependency>
         <groupId>io.swagger</groupId>
         <artifactId>swagger-models</artifactId>
@@ -128,55 +150,55 @@
         <artifactId>swagger-annotations</artifactId>
         <version>${swagger-annotations.version}</version>
       </dependency>
-      <!-- MyBatis 生成器 -->
+      &lt;!&ndash; MyBatis 生成器 &ndash;&gt;
       <dependency>
         <groupId>org.mybatis.generator</groupId>
         <artifactId>mybatis-generator-core</artifactId>
         <version>${mybatis-generator.version}</version>
       </dependency>
-      <!-- MyBatis-->
+      &lt;!&ndash; MyBatis&ndash;&gt;
       <dependency>
         <groupId>org.mybatis</groupId>
         <artifactId>mybatis</artifactId>
         <version>${mybatis.version}</version>
       </dependency>
-      <!--Mysql数据库驱动-->
+      &lt;!&ndash;Mysql数据库驱动&ndash;&gt;
       <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
         <version>${mysql-connector.version}</version>
       </dependency>
-      <!--SpringData工具包-->
+      &lt;!&ndash;SpringData工具包&ndash;&gt;
       <dependency>
         <groupId>org.springframework.data</groupId>
         <artifactId>spring-data-commons</artifactId>
         <version>${spring-data-commons.version}</version>
       </dependency>
-      <!--JWT(Json Web Token)登录支持-->
+      &lt;!&ndash;JWT(Json Web Token)登录支持&ndash;&gt;
       <dependency>
         <groupId>io.jsonwebtoken</groupId>
         <artifactId>jjwt</artifactId>
         <version>${jjwt.version}</version>
       </dependency>
-      <!-- 阿里云OSS -->
+      &lt;!&ndash; 阿里云OSS &ndash;&gt;
       <dependency>
         <groupId>com.aliyun.oss</groupId>
         <artifactId>aliyun-sdk-oss</artifactId>
         <version>${aliyun-oss.version}</version>
       </dependency>
-      <!--集成logstash-->
+      &lt;!&ndash;集成logstash&ndash;&gt;
       <dependency>
         <groupId>net.logstash.logback</groupId>
         <artifactId>logstash-logback-encoder</artifactId>
         <version>${logstash-logback.version}</version>
       </dependency>
-      <!--MinIO JAVA SDK-->
+      &lt;!&ndash;MinIO JAVA SDK&ndash;&gt;
       <dependency>
         <groupId>io.minio</groupId>
         <artifactId>minio</artifactId>
         <version>${minio.version}</version>
       </dependency>
-      <!--统一Guava版本防止冲突-->
+      &lt;!&ndash;统一Guava版本防止冲突&ndash;&gt;
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
@@ -193,5 +215,5 @@
         <version>${apollo.version}</version>
       </dependency>
     </dependencies>
-  </dependencyManagement>
+  </dependencyManagement>-->
 </project>
