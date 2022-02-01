@@ -52,7 +52,8 @@ public class DispatcherHandler extends ChannelDuplexHandler implements Initializ
     }
 
     private void channelReadInvoke(ChannelHandlerContext ctx, String msg) {
+        log.info("接收到数据 {}", msg);
         String responseMsg = new StringBuffer(msg).reverse().toString();
-        ctx.writeAndFlush(responseMsg);
+        ctx.channel().writeAndFlush(responseMsg);
     }
 }

@@ -33,6 +33,10 @@ public class NettyServer {
     private EventLoopGroup workerGroup;
     @Autowired
     private DispatcherHandler dispatcherHandler;
+
+    @Autowired
+    private LogHandler logHandler;
+
     private boolean isRunning;
 
     @PostConstruct
@@ -51,6 +55,7 @@ public class NettyServer {
                     @Override
                     protected void initChannel(NioSocketChannel ch) throws Exception {
                         ch.pipeline()
+                                .addLast("log", logHandler)
                                 .addLast("fixLength", new FixedLengthFrameDecoder(20))
                                 .addLast("decoder", new StringDecoder(Charset.forName("utf8")))
                                 .addLast("encoder", new StringEncoder(Charset.forName("utf8")))
