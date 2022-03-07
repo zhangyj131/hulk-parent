@@ -40,6 +40,7 @@ public class MQConsumerConfiguration {
         DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(consumerGroup);
         consumer.setNamesrvAddr(namesrvAddr);
         consumer.registerMessageListener(mqMessageListenerProcessor);
+        consumer.setUnitName("hulk-service-1");
 
         // 设置 consumer 第一次启动是从队列头部开始消费还是队列尾部开始消费
         // 如果非第一次启动，那么按照上次消费的位置继续消费
